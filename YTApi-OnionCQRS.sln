@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+#
+
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{31C28C22-713C-4754-A96F-3B61F650DFDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeApi.Application", "Core\YoutubeApi.Application\YoutubeApi.Application.csproj", "{B70C7201-7F43-4DAD-BF68-E0E4E576C3F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeApi.Domain", "Core\YoutubeApi.Domain\YoutubeApi.Domain.csproj", "{612BC93A-74BA-48C6-B675-49AFA5BD709D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeApi.Mapper", "Core\YoutubeApi.Mapper\YoutubeApi.Mapper.csproj", "{81490E41-EEDA-4D43-99E4-DB90B1E52A7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{72CF3229-93BF-46B3-BDD5-39B145729145}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeApi.Infrastructure", "Infrastructure\YoutubeApi.Infrastructure\YoutubeApi.Infrastructure.csproj", "{4136D998-B0AF-4D7F-A8B9-A6E9A6F2CDBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeApi.Persistence", "Infrastructure\YoutubeApi.Persistence\YoutubeApi.Persistence.csproj", "{2ADCEE31-727A-41A1-B66E-B238B3908C03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{54BC05BF-6F82-47EC-9A31-1B8A5B023550}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeApi.Api", "Presentation\YoutubeApi.Api\YoutubeApi.Api.csproj", "{FDDF7CC2-8C29-4812-9339-A544D74F342B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B70C7201-7F43-4DAD-BF68-E0E4E576C3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70C7201-7F43-4DAD-BF68-E0E4E576C3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70C7201-7F43-4DAD-BF68-E0E4E576C3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70C7201-7F43-4DAD-BF68-E0E4E576C3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{612BC93A-74BA-48C6-B675-49AFA5BD709D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{612BC93A-74BA-48C6-B675-49AFA5BD709D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{612BC93A-74BA-48C6-B675-49AFA5BD709D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{612BC93A-74BA-48C6-B675-49AFA5BD709D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81490E41-EEDA-4D43-99E4-DB90B1E52A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81490E41-EEDA-4D43-99E4-DB90B1E52A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81490E41-EEDA-4D43-99E4-DB90B1E52A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81490E41-EEDA-4D43-99E4-DB90B1E52A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4136D998-B0AF-4D7F-A8B9-A6E9A6F2CDBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4136D998-B0AF-4D7F-A8B9-A6E9A6F2CDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4136D998-B0AF-4D7F-A8B9-A6E9A6F2CDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4136D998-B0AF-4D7F-A8B9-A6E9A6F2CDBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ADCEE31-727A-41A1-B66E-B238B3908C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADCEE31-727A-41A1-B66E-B238B3908C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADCEE31-727A-41A1-B66E-B238B3908C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADCEE31-727A-41A1-B66E-B238B3908C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDDF7CC2-8C29-4812-9339-A544D74F342B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDDF7CC2-8C29-4812-9339-A544D74F342B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDDF7CC2-8C29-4812-9339-A544D74F342B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDDF7CC2-8C29-4812-9339-A544D74F342B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4136D998-B0AF-4D7F-A8B9-A6E9A6F2CDBF} = {72CF3229-93BF-46B3-BDD5-39B145729145}
+		{2ADCEE31-727A-41A1-B66E-B238B3908C03} = {72CF3229-93BF-46B3-BDD5-39B145729145}
+		{FDDF7CC2-8C29-4812-9339-A544D74F342B} = {54BC05BF-6F82-47EC-9A31-1B8A5B023550}
+		{B70C7201-7F43-4DAD-BF68-E0E4E576C3F8} = {31C28C22-713C-4754-A96F-3B61F650DFDD}
+		{612BC93A-74BA-48C6-B675-49AFA5BD709D} = {31C28C22-713C-4754-A96F-3B61F650DFDD}
+		{81490E41-EEDA-4D43-99E4-DB90B1E52A7D} = {31C28C22-713C-4754-A96F-3B61F650DFDD}
+	EndGlobalSection
+EndGlobal
