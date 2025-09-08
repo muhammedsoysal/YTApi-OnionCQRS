@@ -1,13 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using YoutubeApi.Application.Interfaces.Repositories;
 using YoutubeApi.Domain.Common;
+using YoutubeApi.Persistence.Context;
 
 namespace YoutubeApi.Persistence.Repositories;
 
 public class WriteRepository<T> : IWriteRepository<T>  where T : class, IEntityBase, new()
 {
-    private readonly DbContext _dbContext;
-    public WriteRepository( DbContext context )
+    private readonly AppDbContext _dbContext;
+    public WriteRepository( AppDbContext context )
     {
         this._dbContext = context;
     }
