@@ -1,4 +1,5 @@
 using YoutubeApi.Application;
+using YoutubeApi.Application.Exceptions;
 using YoutubeApi.Mapper;
 using YoutubeApi.Persistence;
 
@@ -38,7 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.ConfigureExceptionHandlingMiddleware();
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");

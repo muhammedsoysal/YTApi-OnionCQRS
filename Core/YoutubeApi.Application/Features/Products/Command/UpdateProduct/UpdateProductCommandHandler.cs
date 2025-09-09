@@ -24,7 +24,7 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandR
             .GetAsync(x => x.Id == request.Id && !x.IsDeleted);
 
         if (product is null)
-            throw new KeyNotFoundException($"Güncellenmek istenen ürün (Id: {request.Id}) bulunamadı veya silinmiş olabilir.");
+            throw new Exception($"Güncellenmek istenen ürün (Id: {request.Id}) bulunamadı veya silinmiş olabilir.");
 
         var map = _mapper.Map<Product, UpdateProductCommandRequest>(request);
         map.Id = request.Id;
@@ -48,6 +48,5 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandR
 
         await _unitOfWork.GetWriteRepository<Product>().UpdateAsync(map);
         await _unitOfWork.SaveAsync();
-
     }
 }
