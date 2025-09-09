@@ -35,8 +35,7 @@ public class ExceptionMiddleware : IMiddleware
          
         List<string> errrors = new List<string>()
         {
-            exception.Message,
-            exception.InnerException?.ToString(),
+            exception.Message
         };
 
         return context.Response.WriteAsync(

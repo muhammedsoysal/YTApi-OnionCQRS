@@ -12,5 +12,5 @@ public class CreateProductCommandValidator : AbstractValidator<CreateProductComm
         RuleFor(x => x.Price).GreaterThan(0);
         RuleFor(x => x.Discount).GreaterThanOrEqualTo(0);
         RuleFor(x => x.CategoryIds).NotEmpty().Must(c => c.Any());
-    }
+     }
 }

@@ -23,9 +23,6 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandR
             .GetReadRepository<Product>()
             .GetAsync(x => x.Id == request.Id && !x.IsDeleted);
 
-        if (product is null)
-            throw new Exception($"Product with Id {request.Id} was not found or has been deleted.");
-
         var map = _mapper.Map<Product, UpdateProductCommandRequest>(request);
         map.Id = request.Id;
 
