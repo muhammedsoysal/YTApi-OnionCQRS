@@ -6,7 +6,7 @@ using YoutubeApi.Domain.Entities;
 
 namespace YoutubeApi.Application.Features.Products.Command.UpdateProduct;
 
-public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest>
+public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest, Unit>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -16,15 +16,15 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandR
         _unitOfWork = unitOfWork;
         _mapper = mapper;
     }
-    
-    public async Task Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
+
+    public async Task<Unit> Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
     {
         var product = await _unitOfWork
             .GetReadRepository<Product>()
             .GetAsync(x => x.Id == request.Id && !x.IsDeleted);
 
         if (product is null)
-            throw new Exception($"Güncellenmek istenen ürün (Id: {request.Id}) bulunamadı veya silinmiş olabilir.");
+            throw new Exception($"Product with Id {request.Id} was not found or has been deleted.");
 
         var map = _mapper.Map<Product, UpdateProductCommandRequest>(request);
         map.Id = request.Id;
@@ -48,5 +48,6 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandR
 
         await _unitOfWork.GetWriteRepository<Product>().UpdateAsync(map);
         await _unitOfWork.SaveAsync();
+        return Unit.Value;
     }
 }

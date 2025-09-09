@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 using SendGrid.Helpers.Errors.Model;
+using FluentValidation;
+using ValidationException = FluentValidation.ValidationException;
 
 namespace YoutubeApi.Application.Exceptions;
 
@@ -24,6 +26,13 @@ public class ExceptionMiddleware : IMiddleware
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = statusCode;
 
+        if (exception.GetType() == typeof(ValidationException))
+            return context.Response.WriteAsync(new ExceptionModel()
+            {
+                StatusCode = StatusCodes.Status400BadRequest,
+                Errors = ((ValidationException)exception).Errors.Select(x => x.ErrorMessage)
+            }.ToString());
+         
         List<string> errrors = new List<string>()
         {
             exception.Message,
