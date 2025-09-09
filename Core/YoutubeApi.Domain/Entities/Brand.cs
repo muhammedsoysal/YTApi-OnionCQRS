@@ -13,5 +13,5 @@ public class Brand: EntityBase
     {
         Name = brandName;
     }
-    public required string Name { get; set; }
+    public string Name { get; set; }
 }

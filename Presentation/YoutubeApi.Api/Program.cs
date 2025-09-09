@@ -1,3 +1,5 @@
+using YoutubeApi.Application;
+using YoutubeApi.Mapper;
 using YoutubeApi.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +27,8 @@ builder
     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
 builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddApplication();
+builder.Services.AddCustomMapper();
  
 var app = builder.Build();
 
