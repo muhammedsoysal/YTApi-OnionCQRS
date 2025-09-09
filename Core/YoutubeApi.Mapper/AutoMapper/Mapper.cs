@@ -15,7 +15,6 @@ namespace YoutubeApi.Mapper.AutoMapper
             MapperContainer = initialConfig.CreateMapper();
         }
 
-
         public TDestination Map<TDestination, TSource>(TSource source, string? ignore = null)
         {
             Config<TDestination, TSource>(5, ignore);
@@ -23,7 +22,10 @@ namespace YoutubeApi.Mapper.AutoMapper
             return MapperContainer.Map<TSource, TDestination>(source);
         }
 
-        public IList<TDestination> Map<TDestination, TSource>(IList<TSource> source, string? ignore = null)
+        public IList<TDestination> Map<TDestination, TSource>(
+            IList<TSource> source,
+            string? ignore = null
+        )
         {
             Config<TDestination, TSource>(5, ignore);
 
@@ -48,23 +50,32 @@ namespace YoutubeApi.Mapper.AutoMapper
         {
             var typePair = new TypePair(typeof(TSource), typeof(TDestionation));
 
-            if (!typePairs.Any(a => a.DestinationType == typePair.DestinationType && a.SourceType == typePair.SourceType))
+            if (
+                !typePairs.Any(a =>
+                    a.DestinationType == typePair.DestinationType
+                    && a.SourceType == typePair.SourceType
+                )
+            )
                 typePairs.Add(typePair);
 
-            var config = new MapperConfiguration(cfg =>
-            {
-                foreach (var item in typePairs)
+            var config = new MapperConfiguration(
+                cfg =>
                 {
-                    if (ignore is not null)
-                        cfg.CreateMap(item.SourceType, item.DestinationType)
-                            .MaxDepth(depth)
-                            .ForMember(ignore, x => x.Ignore())
-                            .ReverseMap();
-                    else
-                        cfg.CreateMap(item.SourceType, item.DestinationType)
-                            .MaxDepth(depth).ReverseMap();
-                }
-            }, NullLoggerFactory.Instance);
+                    foreach (var item in typePairs)
+                    {
+                        if (ignore is not null)
+                            cfg.CreateMap(item.SourceType, item.DestinationType)
+                                .MaxDepth(depth)
+                                .ForMember(ignore, x => x.Ignore())
+                                .ReverseMap();
+                        else
+                            cfg.CreateMap(item.SourceType, item.DestinationType)
+                                .MaxDepth(depth)
+                                .ReverseMap();
+                    }
+                },
+                NullLoggerFactory.Instance
+            );
             MapperContainer = config.CreateMapper();
         }
     }

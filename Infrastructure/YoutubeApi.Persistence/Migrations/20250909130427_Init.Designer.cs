@@ -12,8 +12,8 @@ using YoutubeApi.Persistence.Context;
 namespace YoutubeApi.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250908172105_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250909130427_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,21 +24,6 @@ namespace YoutubeApi.Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("CategoryProduct", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("CategoryProduct");
-                });
 
             modelBuilder.Entity("YoutubeApi.Domain.Entities.Brand", b =>
                 {
@@ -70,30 +55,30 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 405, DateTimeKind.Local).AddTicks(160),
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 456, DateTimeKind.Local).AddTicks(7300),
                             IsDeleted = false,
-                            Name = "Small Frozen Shoes"
+                            Name = "Handcrafted Granite Computer"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 405, DateTimeKind.Local).AddTicks(260),
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 456, DateTimeKind.Local).AddTicks(7390),
                             IsDeleted = false,
-                            Name = "Fantastic Fresh Bacon"
+                            Name = "Licensed Frozen Pizza"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 405, DateTimeKind.Local).AddTicks(270),
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 456, DateTimeKind.Local).AddTicks(7400),
                             IsDeleted = false,
-                            Name = "Handcrafted Soft Pants"
+                            Name = "Intelligent Plastic Table"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 405, DateTimeKind.Local).AddTicks(280),
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 456, DateTimeKind.Local).AddTicks(7420),
                             IsDeleted = true,
-                            Name = "Refined Fresh Ball"
+                            Name = "Awesome Frozen Hat"
                         });
                 });
 
@@ -133,7 +118,7 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 406, DateTimeKind.Local).AddTicks(6400),
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 459, DateTimeKind.Local).AddTicks(2800),
                             IsDeleted = false,
                             Name = "Elektronik",
                             ParentId = 0,
@@ -142,7 +127,7 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 406, DateTimeKind.Local).AddTicks(6430),
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 459, DateTimeKind.Local).AddTicks(2830),
                             IsDeleted = false,
                             Name = "Moda",
                             ParentId = 0,
@@ -151,7 +136,7 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 406, DateTimeKind.Local).AddTicks(6430),
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 459, DateTimeKind.Local).AddTicks(2830),
                             IsDeleted = false,
                             Name = "Bilgisayar",
                             ParentId = 1,
@@ -160,7 +145,7 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 406, DateTimeKind.Local).AddTicks(6440),
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 459, DateTimeKind.Local).AddTicks(2830),
                             IsDeleted = false,
                             Name = "Kadın Giyim",
                             ParentId = 2,
@@ -209,37 +194,37 @@ namespace YoutubeApi.Persistence.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 408, DateTimeKind.Local).AddTicks(4860),
-                            Description = "Adipisci qui molestiae hesap deleniti.",
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 460, DateTimeKind.Local).AddTicks(4230),
+                            Description = "Umut sinema quis ama quia.",
                             IsDeleted = false,
-                            Title = "Sıla ipsa layıkıyla yapacakmış laboriosam."
+                            Title = "Nostrum çorba eum lakin olduğu."
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 408, DateTimeKind.Local).AddTicks(4970),
-                            Description = "Qui yapacakmış bundan sıfat kapının magnam sarmal sequi lakin veritatis.",
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 460, DateTimeKind.Local).AddTicks(4380),
+                            Description = "Lakin ex aut voluptatem de ea beatae velit dağılımı teldeki.",
                             IsDeleted = false,
-                            Title = "Sıradanlıktan consequuntur."
+                            Title = "Gidecekmiş architecto."
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 408, DateTimeKind.Local).AddTicks(5030),
-                            Description = "Ama türemiş sed dağılımı accusantium nisi ki yapacakmış çakıl quis mıknatıslı ad ekşili tempora consectetur.",
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 460, DateTimeKind.Local).AddTicks(4420),
+                            Description = "Iusto ki bilgiyasayarı aperiam ama çobanın minima quis dolores değerli voluptatum ipsum consequuntur ışık sequi.",
                             IsDeleted = false,
-                            Title = "Non quae ki."
+                            Title = "Koştum commodi incidunt."
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 408, DateTimeKind.Local).AddTicks(5070),
-                            Description = "Un ea praesentium quam okuma ki kapının consectetur bahar ullam accusantium için mıknatıslı salladı göze sit yapacakmış camisi velit aut.",
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 460, DateTimeKind.Local).AddTicks(4460),
+                            Description = "Aut batarya koştum sarmal aliquam orta aliquam bilgisayarı voluptatem değerli ve qui fugit duyulmamış ipsam öyle biber laudantium veritatis quasi.",
                             IsDeleted = true,
-                            Title = "Dergi koştum öyle fugit."
+                            Title = "Layıkıyla incidunt çünkü numquam."
                         });
                 });
 
@@ -263,12 +248,14 @@ namespace YoutubeApi.Persistence.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<decimal>("Discount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(5, 2)
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
@@ -288,52 +275,52 @@ namespace YoutubeApi.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = -1,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 409, DateTimeKind.Local).AddTicks(6320),
-                            Description = "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-                            Discount = 68.085818668114120m,
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 462, DateTimeKind.Local).AddTicks(1210),
+                            Description = "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+                            Discount = 32.106276223393960m,
                             IsDeleted = false,
-                            Price = 486.60m,
-                            Title = "Tasty Rubber Chicken"
+                            Price = 43.79m,
+                            Title = "Refined Cotton Soap"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = -2,
                             BrandId = 2,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 409, DateTimeKind.Local).AddTicks(6670),
-                            Description = "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-                            Discount = 12.2766549255706690m,
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 462, DateTimeKind.Local).AddTicks(1420),
+                            Description = "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                            Discount = 50.972071874505670m,
                             IsDeleted = false,
-                            Price = 517.30m,
-                            Title = "Intelligent Plastic Fish"
+                            Price = 939.94m,
+                            Title = "Gorgeous Rubber Ball"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = -3,
                             BrandId = 3,
-                            CreatedDate = new DateTime(2025, 9, 8, 20, 21, 5, 409, DateTimeKind.Local).AddTicks(6700),
-                            Description = "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-                            Discount = 20.474008385462020m,
+                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 462, DateTimeKind.Local).AddTicks(2430),
+                            Description = "The Football Is Good For Training And Recreational Purposes",
+                            Discount = 26.640805074917770m,
                             IsDeleted = false,
-                            Price = 339.62m,
-                            Title = "Handcrafted Cotton Cheese"
+                            Price = 936.00m,
+                            Title = "Licensed Fresh Bacon"
                         });
                 });
 
-            modelBuilder.Entity("CategoryProduct", b =>
+            modelBuilder.Entity("YoutubeApi.Domain.Entities.ProductCategory", b =>
                 {
-                    b.HasOne("YoutubeApi.Domain.Entities.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ProdctId")
+                        .HasColumnType("int");
 
-                    b.HasOne("YoutubeApi.Domain.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProdctId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("YoutubeApi.Domain.Entities.Detail", b =>
@@ -358,9 +345,35 @@ namespace YoutubeApi.Persistence.Migrations
                     b.Navigation("Brand");
                 });
 
+            modelBuilder.Entity("YoutubeApi.Domain.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("YoutubeApi.Domain.Entities.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("YoutubeApi.Domain.Entities.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProdctId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("YoutubeApi.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Details");
+
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("YoutubeApi.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }
