@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using YoutubeApi.Application.Interfaces.Repositories;
 using YoutubeApi.Application.Interfaces.UnitOfWorks;
+using YoutubeApi.Domain.Entities;
 using YoutubeApi.Persistence.Context;
 using YoutubeApi.Persistence.Repositories;
 using YoutubeApi.Persistence.UnitOfWorks;
@@ -21,7 +22,18 @@ public static class Registration
         
         
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-        
+        services.AddIdentityCore<User>(opt =>
+        {
+            opt.Password.RequireNonAlphanumeric = false;
+            opt.Password.RequiredLength = 2;
+            opt.Password.RequireLowercase = false;
+            opt.Password.RequireUppercase = false;
+            opt.Password.RequireDigit = false;
+            opt.User.RequireUniqueEmail = false;
+            opt.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+            
+        }).AddRoles<Role>().AddEntityFrameworkStores<AppDbContext>();
     }
 }
 

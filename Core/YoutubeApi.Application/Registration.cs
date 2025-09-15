@@ -22,7 +22,7 @@ public static class Registration
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
         services.AddValidatorsFromAssembly(assembly);
         ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("tr-TR");
-        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehavior<,>));
     }
 
     private static IServiceCollection AddRulesFromAssemblyContaining(this IServiceCollection services,

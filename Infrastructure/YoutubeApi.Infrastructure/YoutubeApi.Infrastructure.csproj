@@ -1,7 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\YoutubeApi.Application\YoutubeApi.Application.csproj" />
     <ProjectReference Include="..\..\Core\YoutubeApi.Domain\YoutubeApi.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.9.17" />
   </ItemGroup>
 
   <PropertyGroup>

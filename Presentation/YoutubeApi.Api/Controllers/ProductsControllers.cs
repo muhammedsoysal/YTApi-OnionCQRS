@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using YoutubeApi.Application.Features.Products.Command.CreateProduct;
 using YoutubeApi.Application.Features.Products.Command.DeleteProduct;
@@ -11,19 +12,24 @@ namespace YoutubeApi.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]/[action]")]
+[Authorize]
 public class ProductsControllers : Controller
 {
     IMediator _mediator;
-    
+
     public ProductsControllers(IMediator mediator)
     {
         _mediator = mediator;
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAllProductsAsync()
+    public async Task<IActionResult> GetAllProductsAsync([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
-        var response = await _mediator.Send(new GetAllProductsQueryRequest());
+        var response = await _mediator.Send(new GetAllProductsQueryRequest
+        {
+            Page = page,
+            PageSize = pageSize
+        });
         return Ok(response);
     }
 
@@ -54,4 +60,5 @@ public class ProductsControllers : Controller
         await _mediator.Send(request);
         return Ok();
     }
+    
 }

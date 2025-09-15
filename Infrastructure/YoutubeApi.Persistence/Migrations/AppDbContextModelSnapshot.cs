@@ -22,6 +22,109 @@ namespace YoutubeApi.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
             modelBuilder.Entity("YoutubeApi.Domain.Entities.Brand", b =>
                 {
                     b.Property<int>("Id")
@@ -52,30 +155,30 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 456, DateTimeKind.Local).AddTicks(7300),
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 573, DateTimeKind.Local).AddTicks(4770),
                             IsDeleted = false,
-                            Name = "Handcrafted Granite Computer"
+                            Name = "Ergonomic Soft Pizza"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 456, DateTimeKind.Local).AddTicks(7390),
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 573, DateTimeKind.Local).AddTicks(4860),
                             IsDeleted = false,
-                            Name = "Licensed Frozen Pizza"
+                            Name = "Tasty Cotton Pizza"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 456, DateTimeKind.Local).AddTicks(7400),
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 573, DateTimeKind.Local).AddTicks(4870),
                             IsDeleted = false,
-                            Name = "Intelligent Plastic Table"
+                            Name = "Refined Frozen Mouse"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 456, DateTimeKind.Local).AddTicks(7420),
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 573, DateTimeKind.Local).AddTicks(4880),
                             IsDeleted = true,
-                            Name = "Awesome Frozen Hat"
+                            Name = "Handcrafted Plastic Mouse"
                         });
                 });
 
@@ -115,7 +218,7 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 459, DateTimeKind.Local).AddTicks(2800),
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 574, DateTimeKind.Local).AddTicks(3680),
                             IsDeleted = false,
                             Name = "Elektronik",
                             ParentId = 0,
@@ -124,7 +227,7 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 459, DateTimeKind.Local).AddTicks(2830),
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 574, DateTimeKind.Local).AddTicks(3690),
                             IsDeleted = false,
                             Name = "Moda",
                             ParentId = 0,
@@ -133,7 +236,7 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 459, DateTimeKind.Local).AddTicks(2830),
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 574, DateTimeKind.Local).AddTicks(3690),
                             IsDeleted = false,
                             Name = "Bilgisayar",
                             ParentId = 1,
@@ -142,7 +245,7 @@ namespace YoutubeApi.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 459, DateTimeKind.Local).AddTicks(2830),
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 574, DateTimeKind.Local).AddTicks(3690),
                             IsDeleted = false,
                             Name = "Kadın Giyim",
                             ParentId = 2,
@@ -191,37 +294,37 @@ namespace YoutubeApi.Persistence.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 460, DateTimeKind.Local).AddTicks(4230),
-                            Description = "Umut sinema quis ama quia.",
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 575, DateTimeKind.Local).AddTicks(1780),
+                            Description = "Sarmal ötekinden otobüs türemiş qui.",
                             IsDeleted = false,
-                            Title = "Nostrum çorba eum lakin olduğu."
+                            Title = "Velit salladı bundan dicta esse."
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 460, DateTimeKind.Local).AddTicks(4380),
-                            Description = "Lakin ex aut voluptatem de ea beatae velit dağılımı teldeki.",
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 575, DateTimeKind.Local).AddTicks(1900),
+                            Description = "Düşünüyor aperiam ki enim ipsum sunt rem sunt quis adresini.",
                             IsDeleted = false,
-                            Title = "Gidecekmiş architecto."
+                            Title = "Iusto aut."
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 460, DateTimeKind.Local).AddTicks(4420),
-                            Description = "Iusto ki bilgiyasayarı aperiam ama çobanın minima quis dolores değerli voluptatum ipsum consequuntur ışık sequi.",
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 575, DateTimeKind.Local).AddTicks(1940),
+                            Description = "Velit değerli ullam ki dışarı ipsum ona bahar karşıdakine lakin et totam neque kapının mi.",
                             IsDeleted = false,
-                            Title = "Koştum commodi incidunt."
+                            Title = "Ea uzattı sed."
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 460, DateTimeKind.Local).AddTicks(4460),
-                            Description = "Aut batarya koştum sarmal aliquam orta aliquam bilgisayarı voluptatem değerli ve qui fugit duyulmamış ipsam öyle biber laudantium veritatis quasi.",
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 575, DateTimeKind.Local).AddTicks(1990),
+                            Description = "Eve commodi autem quae ad iure sinema accusantium çakıl fugit quia otobüs un ama uzattı iure ex nesciunt ama magni.",
                             IsDeleted = true,
-                            Title = "Layıkıyla incidunt çünkü numquam."
+                            Title = "Umut ipsum aut explicabo."
                         });
                 });
 
@@ -274,34 +377,34 @@ namespace YoutubeApi.Persistence.Migrations
                         {
                             Id = -1,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 462, DateTimeKind.Local).AddTicks(1210),
-                            Description = "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-                            Discount = 32.106276223393960m,
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 577, DateTimeKind.Local).AddTicks(3740),
+                            Description = "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+                            Discount = 81.884922385901410m,
                             IsDeleted = false,
-                            Price = 43.79m,
-                            Title = "Refined Cotton Soap"
+                            Price = 678.77m,
+                            Title = "Intelligent Granite Gloves"
                         },
                         new
                         {
                             Id = -2,
                             BrandId = 2,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 462, DateTimeKind.Local).AddTicks(1420),
-                            Description = "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-                            Discount = 50.972071874505670m,
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 577, DateTimeKind.Local).AddTicks(3760),
+                            Description = "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+                            Discount = 93.877479747785980m,
                             IsDeleted = false,
-                            Price = 939.94m,
-                            Title = "Gorgeous Rubber Ball"
+                            Price = 279.06m,
+                            Title = "Unbranded Rubber Shirt"
                         },
                         new
                         {
                             Id = -3,
                             BrandId = 3,
-                            CreatedDate = new DateTime(2025, 9, 9, 16, 4, 27, 462, DateTimeKind.Local).AddTicks(2430),
-                            Description = "The Football Is Good For Training And Recreational Purposes",
-                            Discount = 26.640805074917770m,
+                            CreatedDate = new DateTime(2025, 9, 10, 9, 34, 18, 577, DateTimeKind.Local).AddTicks(3780),
+                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                            Discount = 85.209395162512150m,
                             IsDeleted = false,
-                            Price = 936.00m,
-                            Title = "Licensed Fresh Bacon"
+                            Price = 273.78m,
+                            Title = "Incredible Plastic Ball"
                         });
                 });
 
@@ -318,6 +421,169 @@ namespace YoutubeApi.Persistence.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("ProductCategories");
+                });
+
+            modelBuilder.Entity("YoutubeApi.Domain.Entities.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("YoutubeApi.Domain.Entities.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RefreshTokenExpiryTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+                {
+                    b.HasOne("YoutubeApi.Domain.Entities.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+                {
+                    b.HasOne("YoutubeApi.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+                {
+                    b.HasOne("YoutubeApi.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+                {
+                    b.HasOne("YoutubeApi.Domain.Entities.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("YoutubeApi.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+                {
+                    b.HasOne("YoutubeApi.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("YoutubeApi.Domain.Entities.Detail", b =>

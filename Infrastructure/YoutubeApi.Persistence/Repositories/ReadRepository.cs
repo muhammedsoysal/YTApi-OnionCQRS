@@ -62,4 +62,22 @@ public class ReadRepository<T> : IReadRepository<T>  where T : class, IEntityBas
         if (predicate is not null) return await Table.Where(predicate).CountAsync(predicate);
         return await Table.CountAsync();
     }
+
+    public async Task<(IList<T> Items, int TotalCount)> GetPagedAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, bool enableTracking = false, int currentPage = 1, int pageSize = 10)
+    {
+        IQueryable<T> queryable = Table;
+        if (!enableTracking) queryable = queryable.AsNoTracking();
+        if (include is not null) queryable = include(queryable);
+        if (predicate is not null) queryable = queryable.Where(predicate);
+
+        // Total count'u al
+        var totalCount = await queryable.CountAsync();
+
+        // Pagination uygula
+        var items = orderBy is not null 
+            ? await orderBy(queryable).Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync()
+            : await queryable.Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
+
+        return (items, totalCount);
+    }
 }

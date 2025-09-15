@@ -32,6 +32,14 @@ public interface IReadRepository<T>  where T : class, IEntityBase, new()
 
     Task<int> CountAsync(Expression<Func<T, bool>>? predicate = null);
     
+    Task<(IList<T> Items, int TotalCount)> GetPagedAsync(
+        Expression<Func<T, bool>> predicate = null,
+        Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,
+        Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
+        bool enableTracking = false,
+        int currentPage = 1,
+        int pageSize = 10
+    );
 
 }
 

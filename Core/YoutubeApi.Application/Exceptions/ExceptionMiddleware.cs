@@ -49,7 +49,7 @@ public class ExceptionMiddleware : IMiddleware
         {
             BadRequestException => StatusCodes.Status400BadRequest,
             NotFoundException => StatusCodes.Status404NotFound,
-            ValidationException => StatusCodes.Status422UnprocessableEntity,
+            ValidationException => StatusCodes.Status400BadRequest,
             _ => StatusCodes.Status500InternalServerError,
         };
     }

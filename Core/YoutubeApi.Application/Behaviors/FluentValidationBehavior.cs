@@ -3,12 +3,12 @@ using MediatR;
 
 namespace YoutubeApi.Application.Behaviors;
 
-public class FluentValidationBehevior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public class FluentValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
 {
     private readonly IEnumerable<IValidator<TRequest>> _validator;
 
-    public FluentValidationBehevior(IEnumerable<IValidator<TRequest>> validator)
+    public FluentValidationBehavior(IEnumerable<IValidator<TRequest>> validator)
     {
         _validator = validator;
     }
